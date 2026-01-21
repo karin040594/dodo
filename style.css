@@ -1,0 +1,340 @@
+:root {
+    --primary-color: #D4AF37; /* Gold */
+    --secondary-color: #1A3C34; /* Deep Green */
+    --accent-color: #6F4E37; /* Coffee/Chocolate */
+    --bg-color: #F9F5F0; /* Creamy White */
+    --text-color: #333333;
+    --card-bg: #FFFFFF;
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, .logo {
+    font-family: 'Noto Serif KR', serif;
+}
+
+/* Header & Navigation */
+header {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 2rem 0 0;
+    position: relative;
+    overflow: hidden;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--primary-color);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 300;
+    transition: color var(--transition-speed);
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 5% 6rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.hero-content {
+    flex: 1;
+    min-width: 300px;
+    z-index: 10;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #fff, var(--primary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+}
+
+.hero-image-container {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-image {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    transform: rotate(-5deg);
+    transition: transform 0.5s ease;
+}
+
+.hero-image:hover {
+    transform: rotate(0) scale(1.02);
+}
+
+/* Sections General */
+section {
+    padding: 5rem 5%;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--secondary-color);
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+    margin: 10px auto 0;
+}
+
+/* Ingredients */
+.ingredients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.ingredient-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: 1px solid rgba(26, 60, 52, 0.1);
+}
+
+.ingredient-card.highlight {
+    border: 2px solid var(--primary-color);
+    position: relative;
+}
+
+.ingredient-card h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.ingredient-card ul {
+    list-style: none;
+}
+
+.ingredient-card li {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+}
+
+.ingredient-card li::before {
+    content: '•';
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.detail {
+    font-size: 0.85rem;
+    color: #888;
+    margin-left: 5px;
+}
+
+/* Recipe Timeline */
+.step-timeline {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.step-item {
+    display: flex;
+    margin-bottom: 3rem;
+    opacity: 0; 
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+}
+
+.step-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.step-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: rgba(212, 175, 55, 0.3); /* Faded Gold */
+    margin-right: 2rem;
+    font-family: 'Outfit', sans-serif;
+    line-height: 1;
+}
+
+.step-content h3 {
+    color: var(--secondary-color);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Tips */
+.tips-section {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.tips-section h2 {
+    color: var(--primary-color);
+}
+
+.tips-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.tip-box {
+    background: rgba(255,255,255,0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.tip-box:hover {
+    transform: translateY(-5px);
+    background: rgba(255,255,255,0.15);
+}
+
+.tip-box .icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.tip-box h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+    background-color: #111;
+    color: #888;
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.share-text {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    .nav-links {
+        display: none; /* Simplification for mobile */
+    }
+    
+    .step-item {
+        flex-direction: column;
+    }
+    
+    .step-number {
+        margin-bottom: 0.5rem;
+    }
+}
